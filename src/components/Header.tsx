@@ -1,12 +1,27 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Logo from '../assets/logo.svg';
 
+export const Header = (props: { OnFolderSelected: (files: FileList) => void }) => {
+  const openExplorer = () => {
+    const el = document.createElement("input");
+    el.type = "file"
+    el.multiple = true;
+    (el as any).webkitdirectory = true;
+    el.style.display = "none";
+    document.getElementById("container")?.appendChild(el);
+    
+    el.click();
+    el.onchange = (event) => {
+      const files = (event.target as HTMLInputElement).files;
+      props.OnFolderSelected(files);
+    }
+  }
 
-const Header: FC = () => (
-  <div
-    style={{ 
+  return (<div
+    id="container"
+    style={{
       width: '100%',
       height: '56px',
       display: 'flex',
@@ -26,11 +41,10 @@ const Header: FC = () => (
         alignItems='center'
         style={{ gap: '16px', width: '300px' }}
       >
-        <Button variant="contained" color="primary">Open workspace</Button>
-        <Button variant="contained" color="default">Logout</Button>
+        <Button variant="contained" color="primary" onClick={openExplorer}>Open workspace</Button>
+        <Button variant="contained" color="default" onClick={() => { }}>Logout</Button>
       </Grid>
     </Grid>
   </div>
-);
-
-export default Header;
+  );
+}

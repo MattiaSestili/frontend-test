@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MonacoEditor from 'react-monaco-editor';
 
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Editor: FC = () => {
+const Editor = (props: { value: string }) => {
   const options = {
     selectOnLineNumbers: true,
     roundedSelection: false,
@@ -36,7 +35,7 @@ const Editor: FC = () => {
         height="100%"
         language="javascript"
         theme="vs-light"
-        value={'// type your code...'}
+        value={props.value ? props.value : '// type your code...'}
         options={options}
         onChange={onChange}
       />
