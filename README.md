@@ -1,10 +1,39 @@
-# Getting Started with Create React App
+# Paradime frontend test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the paradime frontend technical challenge.
+In this challenge you will be building the application logic for a basic code editor app.
 
-## Available Scripts
+We have already bootstrapped this project with [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+
+## Setup
+### Installation
+
+Installs all the project dependencies and node modules.
+You will need Node v15+ already installed.
+
+**To install the setup**:
+```
+git clone git@github.com:paradime-io/frontend-test.git
+yarn install
+```
+
+**Installing Node**: (*if you need*)
+```
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh
+
+# verify installation - should output nvm if successful
+command -v nvm
+
+# install Node 15 and set to default
+nvm install 15.10.0
+nvm alias default 15.10.0
+nvm use 15.10.0
+
+# install yarn
+npm install --global yarn
+```
 
 ### `yarn start`
 
@@ -14,33 +43,27 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We are going to build our main code editor application logic. Since we are a small team we are really scarce in resources and we don't even have a designer!!! So our scrappy
+product manager has built the basic design of the app using [Material-UI](https://material-ui.com/) and [Monaco Code Editor](https://github.com/react-monaco-editor/react-monaco-editor) - if you need to consult dev docs.
 
-### `yarn build`
+He has also written out the following user stories for you:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### US-1.1 (open workspace dialog):
+As a product manager, I expect that when the "Open Workspace" button is clicked that there is a dialog box with an input field that allows me to select a directory using the system file dialog and two buttons - "OK" and "Cancel". When a directory is selected and the "OK" button is pressed, the dialog box closes and the selected directory and its contents are displayed in the file explorer. When the "Cancel" button is clicked, nothing happens and the dialog box closes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### US-1.2 (opening files in the editor):
+As a product manager, I expect that when a file is double clicked in the file viewer, the file would open as a new tab in the code editor.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### US-1.3 (persistent) [Bonus]
+As a product manager, I expect that when the application is closed i.e. by closing the browser window / tab and then it's opened again, then the last state of the app should be restored i.e. the file viewer should have the last opened directory and the code editor should have the last opened file tabs opened.
 
-### `yarn eject`
+### Guidelines:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As a startup, it's sometimes hard to be too prescriptive and we rely on our engineering team to exercise good judgment.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+So make any changes to existing components if you think that's necessary. But as a minimum:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- the app must work and product expected results
+- the code should be clean and clear and easy to read
