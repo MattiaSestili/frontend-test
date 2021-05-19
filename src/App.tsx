@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Header from './components/Header';
+import Body from './components/Body';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CssBaseline />
+      <Container maxWidth="xl">
+        <Typography component="div" style={{ backgroundColor: '#e2e2e2', height: '100vh' }} />
+        <Header />
+        <Body />
+      </Container>
     </div>
   );
 }
